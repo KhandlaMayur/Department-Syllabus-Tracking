@@ -1,0 +1,53 @@
+/**
+ * Design tokens for the Syllabus Tracker UI.
+ * Inspired by the Marwadi University dashboard's teal/cyan academic
+ * look — not copied. Every component should read colors from these
+ * variables rather than hardcoding hex values, so the theme can be
+ * swapped or dark-mode added later without touching component code.
+ */
+:root {
+  /* Brand */
+  --color-primary: #00a9b4;
+  --color-primary-dark: #00838c;
+  --color-primary-light: #e0f5f6;
+
+  /* Surfaces */
+  --color-background: #ffffff;
+  --color-surface: #f7f9fa;
+  --color-surface-hover: #eef2f3;
+  --color-border: #e1e1e1;
+
+  /* Text */
+  --color-text: #1f2937;
+  --color-text-muted: #6b7280;
+  --color-text-inverse: #ffffff;
+
+  /* Semantic */
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #3b82f6;
+
+  /* Shape */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  /* Shadow */
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 10px 30px rgba(15, 23, 42, 0.12);
+
+  /* Layout */
+  --sidebar-width: 260px;
+  --sidebar-width-collapsed: 76px;
+  --navbar-height: 64px;
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Motion */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+}
