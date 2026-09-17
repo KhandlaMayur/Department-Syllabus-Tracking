@@ -9,21 +9,27 @@ const v1Routes = require('./routes/v1');
 const app = express();
 
 // --- Security & parsing ---
-app.use(helmet());
+app.use(helmet({ crossOriginResourcePolicy: false }));
 const allowedOrigins = [
-  config.clientUrl,
+  config.clientUrl?.replace(/\/$/, ''),
   'http://localhost:5173',
   'http://localhost:5174',
-];
+].filter(Boolean);
+
 app.use(
   cors({
     origin: (origin, callback) => {
       // Allow requests with no origin (mobile apps, curl, etc)
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error(`CORS: origin '${origin}' not allowed`));
+      if (!origin) return callback(null, true);
+
+      const cleanOrigin = origin.replace(/\/$/, '');
+      if (
+        allowedOrigins.includes(cleanOrigin) ||
+        cleanOrigin.endsWith('.vercel.app')
+      ) {
+        return callback(null, true);
       }
+      callback(new Error(`CORS: origin '${origin}' not allowed`));
     },
     credentials: true,
   })
